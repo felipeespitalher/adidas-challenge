@@ -1,0 +1,10 @@
+version: '3'
+services:
+    database:
+        image: mysql:8.0
+        restart: "always"
+        build: ./docker/mysql
+        env_file:
+            - "./docker/mysql/.env"
+        ports:
+            - 33060:3306
