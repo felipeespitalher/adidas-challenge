@@ -12,12 +12,12 @@ import java.io.Serializable;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SuccessOutput<T> implements Serializable {
+public class SuccessOutput implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @JsonUnwrapped
-    private T payload;
+    private Object payload;
 
 
 }
