@@ -1,0 +1,15 @@
+spring:
+  data:
+    neo4j:
+      session:
+        scope: request
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          neo4j: debug
+      neo4j:
+        ogm: debug
+

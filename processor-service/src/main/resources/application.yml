@@ -17,16 +17,11 @@ spring:
     time-zone: GMT
     default-property-inclusion: NON_NULL
 server:
-  port: 8090
-  compression:
-    enabled: true
-    mime-types: text/html,text/xml,text/plain,text/css,application/javascript,application/json
-    min-response-size: 1024
-logging:
-  file: adidas.log
-  level:
-    org:
-      apache: INFO
+    port: 8091
+    compression:
+        enabled: true
+        mime-types: text/html,text/xml,text/plain,text/css,application/javascript,application/json
+        min-response-size: 1024
 doc:
   api:
     name: Adidas Challange Test
@@ -35,3 +30,10 @@ doc:
     maintainer:
       name: Felipe Passos
       email: felipe.espitalher@gmail.com
+flyway:
+  enabled: true
+logging:
+  file: adidas.log
+  level:
+    org:
+      apache: INFO

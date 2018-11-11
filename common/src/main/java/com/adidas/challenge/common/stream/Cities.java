@@ -16,5 +16,6 @@ public class Cities {
     private Date departure;
     private String destiny;
     private Date arrival;
+    private Date publishedAt;
 
 }

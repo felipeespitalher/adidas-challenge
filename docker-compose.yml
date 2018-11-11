@@ -1,16 +1,25 @@
 version: '3'
 services:
-    database:
-        image: mysql
-        environment:
-            - MYSQL_DATABASE=adidas
-            - MYSQL_RANDOM_ROOT_PASSWORD=yes
-            - MYSQL_USER=adidas
-            - MYSQL_PASSWORD=adidas
+    neo4j:
+        image: neo4j:latest
         ports:
-            - 3306:3306
+          - "7474:7474"
+          - "7687:7687"
+        environment:
+          - NEO4J_dbms_security_procedures_unrestricted=apoc.*
+          - NEO4J_apoc_import_file_enabled=true
+          - NEO4J_dbms_shell_enabled=true
+        volumes:
+          - ./plugins:/plugins
+          - ./data:/data
+          - ./import:/import
     command:
         build: ./command-service
         image: command-service:latest
         ports:
             - 8090:8090
+    processor:
+        build: ./processor-service
+        image: processor-service:latest
+        ports:
+            - 8091:8091

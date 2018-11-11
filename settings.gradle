@@ -1,5 +1,6 @@
 rootProject.name = 'challenge'
 include 'common'
 include 'command-service'
-include 'event-service'
+include 'processor-service'
+include 'query-service'
 

@@ -5,7 +5,6 @@ import com.adidas.challenge.common.data.mapper.CityMapper;
 import com.adidas.challenge.common.data.output.SuccessOutput;
 import com.adidas.challenge.common.service.AbstractService;
 import com.adidas.challenge.common.stream.Cities;
-import com.adidas.challenge.common.stream.CitiesStreams;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.MessageChannel;
