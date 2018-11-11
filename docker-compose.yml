@@ -1,10 +1,16 @@
 version: '3'
 services:
     database:
-        image: mysql:8.0
-        restart: "always"
-        build: ./docker/mysql
-        env_file:
-            - "./docker/mysql/.env"
+        image: mysql
+        environment:
+            - MYSQL_DATABASE=adidas
+            - MYSQL_RANDOM_ROOT_PASSWORD=yes
+            - MYSQL_USER=adidas
+            - MYSQL_PASSWORD=adidas
         ports:
-            - 33060:3306
+            - 3306:3306
+    command:
+        build: ./command-service
+        image: command-service:latest
+        ports:
+            - 8090:8090

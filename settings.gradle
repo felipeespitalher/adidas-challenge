@@ -1,1 +1,5 @@
 rootProject.name = 'challenge'
+include 'common'
+include 'command-service'
+include 'event-service'
+
