@@ -1,3 +1,9 @@
+
+neo4j:
+  ogm:
+    URI: bolt://localhost:7687
+    username: neo4j
+    password: adidas
 spring:
   cloud:
     stream:
@@ -17,11 +23,11 @@ spring:
     time-zone: GMT
     default-property-inclusion: NON_NULL
 server:
-    port: 8091
-    compression:
-        enabled: true
-        mime-types: text/html,text/xml,text/plain,text/css,application/javascript,application/json
-        min-response-size: 1024
+  port: 8091
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,application/javascript,application/json
+    min-response-size: 1024
 doc:
   api:
     name: Adidas Challange Test

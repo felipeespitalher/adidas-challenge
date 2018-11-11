@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Version;
 import java.util.Date;
 
 @Data
-@NodeEntity
+@NodeEntity(label = "city")
 @NoArgsConstructor
 public class CityEntity {
 
