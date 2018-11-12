@@ -14,9 +14,9 @@ The basic idea of CQRS is that it’s perfectly natural to need to separate the 
 
 CQRS is popular for event-driven architectures because [domain events](https://martinfowler.com/eaaDev/DomainEvent.html) — as inputs — are structurally different than the [domain model](https://martinfowler.com/eaaCatalog/domainModel.html) they are subject to
 
-# CQRS and Microservices
+# CQRS and Adidas Challange
 
-So, this test is divided into three microservices, Command Service, Processor Service, and Query Service.
+So, microservices are divided in three microservices, Command Service, Processor Service, and Query Service.
 
 ## Command Service
 
