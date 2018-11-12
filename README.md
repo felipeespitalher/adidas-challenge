@@ -55,15 +55,18 @@ $ docker-compose up --build
 
     http://localhost:7474/browser/
     
+    username: neo4j
+    passwork: adidas
+    
 ##### Swagger
 
 Command Service
  
-        http://localhost:8090/swagger-ui.html`
+        http://localhost:8090/swagger-ui.html
     
 Query Service
  
-    http://localhost:8092/swagger-ui.html`
+    http://localhost:8092/swagger-ui.html
  
  ## Libs
 
