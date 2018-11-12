@@ -97,3 +97,7 @@ Query Service
     It's provides a great reduce of Java Boilerplate generating getters/setters, 
     constructor methods and builders. 
     
+    
+# NOTES
+
+If yout local network has any proxy configuration, please update `gradle.properties`
