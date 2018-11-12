@@ -1,6 +1,11 @@
+neo4j:
+  ogm:
+    URI: bolt://localhost:7687
+    username: neo4j
+    password: adidas
 spring:
   jackson:
-    date-format: yyyy-MM-dd'T'HH:mm:ss
+    date-format: yyyy-MM-dd'T'HH:mm:ssXXX
     time-zone: GMT
     default-property-inclusion: NON_NULL
 server:

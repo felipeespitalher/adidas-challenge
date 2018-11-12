@@ -21,3 +21,10 @@ services:
              - 8091:8091
          env_file:
             - ./docker/spring/.env
+    query:
+         build: ./query-service
+         image: query-service:latest
+         ports:
+             - 8092:8092
+         env_file:
+            - ./docker/spring/.env

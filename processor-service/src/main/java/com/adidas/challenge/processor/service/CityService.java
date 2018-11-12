@@ -34,10 +34,10 @@ public class CityService extends AbstractService {
         travel.setDeparture(payload.getDeparture());
         travel.setArrival(payload.getArrival());
 
-        travelRepository.save(travel);
-
         CityEntity destiny = findOrCreateByName(payload.getDestiny());
         travel.setDestiny(destiny);
+
+        travelRepository.save(travel);
 
         origin.getTravel().add(travel);
         cityRepository.save(origin);

@@ -7,6 +7,7 @@ import org.neo4j.ogm.annotation.Index;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -22,5 +23,12 @@ public class CityEntity {
 
     @Relationship(type = "TRAVEL")
     private List<TravelEntity> travel;
+
+    public List<TravelEntity> getTravel() {
+        if (travel == null) {
+            travel = new ArrayList<>();
+        }
+        return travel;
+    }
 
 }
