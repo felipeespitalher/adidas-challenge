@@ -62,7 +62,7 @@ $ docker-compose up --build
 
 Command Service
  
-        http://localhost:8090/swagger-ui.html
+    http://localhost:8090/swagger-ui.html
     
 Query Service
  
