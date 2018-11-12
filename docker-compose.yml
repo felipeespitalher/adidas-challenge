@@ -3,28 +3,34 @@ services:
     neo4j:
         image: neo4j:latest
         ports:
-          - "7474:7474"
-          - "7687:7687"
-        env_file:
-            - ./docker/neo4j/.env
+            - "7474:7474"
+            - "7687:7687"
+        environment:
+            - NEO4J_dbms_security_procedures_unrestricted=apoc.*
+            - NEO4J_apoc_import_file_enabled=true
+            - NEO4J_dbms_shell_enabled=true
+            - NEO4J_AUTH=neo4j/adidas
     command:
-         build: ./command-service
-         image: command-service:latest
-         ports:
-             - 8090:8090
-         env_file:
-            - ./docker/spring/.env
+        build: .
+        image: adidas-challenge-services:latest
+        command: java -jar /app/command-service.jar
+        ports:
+            - 8090:8080
+        env_file:
+            - .env
     processor:
-         build: ./processor-service
-         image: processor-service:latest
-         ports:
-             - 8091:8091
-         env_file:
-            - ./docker/spring/.env
+        build: .
+        image: adidas-challenge-services:latest
+        command: java -jar /app/processor-service.jar
+        ports:
+            - 8091:8080
+        env_file:
+            - .env
     query:
-         build: ./query-service
-         image: query-service:latest
-         ports:
-             - 8092:8092
-         env_file:
-            - ./docker/spring/.env
+        build: .
+        image: adidas-challenge-services:latest
+        command: java -jar /app/query-service.jar
+        ports:
+            - 8092:8080
+        env_file:
+            - .env
