@@ -2,8 +2,6 @@
 
 Solution for Adidas Coding Challenge
 
-## Getting Started
-
 ## Environment Requirements 
 
 * Docker 17.x or newer
