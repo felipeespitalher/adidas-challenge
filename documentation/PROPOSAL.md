@@ -3,9 +3,9 @@
 
 We want to create a service that given an origin city will return a list of itineraries , one based in the less number of
 connections and the second based in the less time. For that you will have to implement a couple of microservices :
-• Implement an API in order to expose the data related with a city defined with : city, destiny city, departure time, arrival time,
+- Implement an API in order to expose the data related with a city defined with : city, destiny city, departure time, arrival time,
 stored in a data base . You can choose it .
-• Implement a Restful service that will consume the previus API in order to calculate the sortest way( in time and in
+- Implement a Restful service that will consume the previus API in order to calculate the sortest way( in time and in
 connections ) to travel from one city to another , independent of the departure time .
 
 # Proposal
