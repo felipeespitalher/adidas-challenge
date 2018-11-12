@@ -7,38 +7,6 @@ Solution for Adidas Coding Challenge
 * Docker 17.x or newer
 * Have Lombok plugin installed in your IDE to avoid seeing compile errors
 
-## Setup Stream Server
-
-[Landoop](https://github.com/Landoop/fast-data-dev) has a full docker image with Kafka and Zookeeper, including UI tools. Then we'll use to provide a stream server.
-
-Create `landoop` docker-machine
-
-```
-$ docker-machine create --driver virtualbox --virtualbox-memory 4096 landoop
-```
-
-Run `docker-machine ls` to verify that the Docker Machine is running correctly. The command's output should be similar to:
-
-```
-$ docker-machine ls
-NAME        ACTIVE   DRIVER       STATE     URL                         SWARM   DOCKER        ERRORS
-landoop     *        virtualbox   Running   tcp://192.168.99.100:2376           v17.03.1-ce
-```
-
-Configure your terminal to be able to use the new Docker Machine named landoop:
-
-```
-$ eval $(docker-machine env landoop)
-```
-
-And run the Kafka Development Environment. Define ports, advertise the hostname and use extra parameters:
-
-```
-$ docker run --rm -p 2181:2181 -p 3030:3030 -p 8081-8083:8081-8083 \
-       -p 9581-9585:9581-9585 -p 9092:9092 -e ADV_HOST=192.168.99.100 \
-       landoop/fast-data-dev:latest
-```
-
 ## Run & Build
 
 ```
@@ -55,15 +23,18 @@ $ docker-compose up --build
 
     http://localhost:7474/browser/
     
+    username: neo4j
+    passwork: adidas
+    
 ##### Swagger
 
 Command Service
  
-        http://localhost:8090/swagger-ui.html`
+    http://localhost:8090/swagger-ui.html
     
 Query Service
  
-    http://localhost:8092/swagger-ui.html`
+    http://localhost:8092/swagger-ui.html
  
  ## Libs
 
