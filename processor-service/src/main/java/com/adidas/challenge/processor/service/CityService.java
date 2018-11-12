@@ -4,14 +4,12 @@ package com.adidas.challenge.processor.service;
 import com.adidas.challenge.common.service.AbstractService;
 import com.adidas.challenge.common.stream.Cities;
 import com.adidas.challenge.domain.CityEntity;
+import com.adidas.challenge.domain.CityRepository;
 import com.adidas.challenge.domain.TravelEntity;
-import com.adidas.challenge.processor.domain.CityRepository;
 import com.adidas.challenge.processor.domain.TravelRepository;
 import lombok.AllArgsConstructor;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
 
 import static org.springframework.util.Assert.notNull;
 
@@ -26,13 +24,15 @@ public class CityService extends AbstractService {
     public void save(Cities payload) {
         notNull(payload, "cities");
         notNull(payload.getOrigin(), "origin");
-        notNull(payload.getDuration(), "duration");
+        notNull(payload.getDeparture(), "departure");
         notNull(payload.getDestiny(), "destiny");
+        notNull(payload.getArrival(), "arrival");
 
         CityEntity origin = findOrCreateByName(payload.getOrigin());
         TravelEntity travel = findOrCreateByDestiny(origin, payload.getDestiny());
 
-        travel.setDuration(payload.getDuration());
+        travel.setDeparture(payload.getDeparture());
+        travel.setArrival(payload.getArrival());
 
         travelRepository.save(travel);
 
@@ -49,8 +49,7 @@ public class CityService extends AbstractService {
             cityEntity = new CityEntity();
             cityEntity.setName(cityName);
         }
-        cityEntity.setTravel(new ArrayList<>());
-        return cityEntity;
+        return cityRepository.save(cityEntity);
     }
 
     private TravelEntity findOrCreateByDestiny(CityEntity origin, String destiny) {

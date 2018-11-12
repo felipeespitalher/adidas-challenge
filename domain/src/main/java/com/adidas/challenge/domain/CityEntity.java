@@ -7,7 +7,6 @@ import org.neo4j.ogm.annotation.Index;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Relationship;
 
-import java.util.Date;
 import java.util.List;
 
 @Data
@@ -20,8 +19,6 @@ public class CityEntity {
 
     @Index(unique = true)
     private String name;
-
-    private Date publishedAt;
 
     @Relationship(type = "TRAVEL")
     private List<TravelEntity> travel;
