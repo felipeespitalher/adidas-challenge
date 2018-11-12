@@ -13,9 +13,8 @@ import java.util.Date;
 public class Cities {
 
     private String origin;
-    private Date departure;
+    private Long duration;
     private String destiny;
-    private Date arrival;
     private Date publishedAt;
 
 }

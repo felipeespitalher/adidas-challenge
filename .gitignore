@@ -8,3 +8,5 @@ gradle/*
 gradlew*
 *.log
 data/*
+build/*
+/*/build/*

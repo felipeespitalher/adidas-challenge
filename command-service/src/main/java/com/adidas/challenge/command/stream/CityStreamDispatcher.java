@@ -13,6 +13,8 @@ import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.MimeTypeUtils;
 
+import java.util.List;
+
 @Slf4j
 @Service
 @AllArgsConstructor
@@ -31,6 +33,13 @@ public class CityStreamDispatcher extends AbstractService {
         } else {
             throw new RuntimeException("Couldn't persist data");
         }
+    }
+
+    public SuccessOutput sendCities(final List<CityInput> request) {
+        for (CityInput city : request) {
+            sendCities(city);
+        }
+        return new SuccessOutput();
     }
 
     private boolean dispatch(Cities cities) {

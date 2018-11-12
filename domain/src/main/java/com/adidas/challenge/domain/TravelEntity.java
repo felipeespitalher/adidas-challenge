@@ -15,8 +15,7 @@ public class TravelEntity {
 
     @GraphId
     private Long id;
-    private Date departure;
-    private Date arrival;
+    private Long duration;
     private Date publishedAt;
 
     @Relationship(type = "DESTINY")

@@ -26,15 +26,13 @@ public class CityService extends AbstractService {
     public void save(Cities payload) {
         notNull(payload, "cities");
         notNull(payload.getOrigin(), "origin");
-        notNull(payload.getDeparture(), "departure");
+        notNull(payload.getDuration(), "duration");
         notNull(payload.getDestiny(), "destiny");
-        notNull(payload.getArrival(), "arrival");
 
         CityEntity origin = findOrCreateByName(payload.getOrigin());
         TravelEntity travel = findOrCreateByDestiny(origin, payload.getDestiny());
 
-        travel.setArrival(payload.getArrival());
-        travel.setDeparture(payload.getDeparture());
+        travel.setDuration(payload.getDuration());
 
         travelRepository.save(travel);
 

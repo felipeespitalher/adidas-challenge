@@ -1,0 +1,27 @@
+[
+  {
+    "origin": "Lisbon",
+    "destiny": "Porto",
+    "duration": "216000"
+  },
+  {
+    "origin": "Lisbon",
+    "destiny": "Madri",
+    "duration": "1296000"
+  },
+  {
+    "origin": "Madri",
+    "destiny": "Barcelona",
+    "duration": "1296000"
+  },
+  {
+    "origin": "Barcelona",
+    "destiny": "Zaragoza",
+    "duration": "1296000"
+  },
+  {
+    "origin": "Zaragoza",
+    "destiny": "Paris",
+    "duration": "1296000"
+  }
+]

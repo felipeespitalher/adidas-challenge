@@ -12,9 +12,8 @@ public class CityMapper {
     public Cities toCities(CityInput cityInput) {
         return Cities.builder()
                 .origin(cityInput.getOrigin())
-                .departure(cityInput.getDeparture())
+                .duration(cityInput.getDuration())
                 .destiny(cityInput.getDestiny())
-                .arrival(cityInput.getArrival())
                 .publishedAt(new Date())
                 .build();
     }

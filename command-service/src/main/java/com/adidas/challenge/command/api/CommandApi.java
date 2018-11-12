@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Transactional
 @RestController
@@ -22,7 +23,12 @@ public class CommandApi {
     private final CityStreamDispatcher cityStreamDispatcher;
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public SuccessOutput create(@Valid @RequestBody CityInput request) {
+    public SuccessOutput createByOne(@Valid @RequestBody CityInput request) {
+        return cityStreamDispatcher.sendCities(request);
+    }
+
+    @PostMapping(path = "list", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public SuccessOutput createByList(@Valid @RequestBody List<CityInput> request) {
         return cityStreamDispatcher.sendCities(request);
     }
 
