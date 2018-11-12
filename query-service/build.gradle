@@ -30,6 +30,7 @@ jar {
 
 dependencies {
     compile project(':common')
+    compile project(':domain')
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-dependencies")
@@ -37,7 +38,7 @@ dependencies {
 
     compile 'org.neo4j:neo4j-ogm-core:2.1.6'
     compile "org.neo4j:neo4j-ogm-bolt-driver:2.1.6"
-    
+
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")

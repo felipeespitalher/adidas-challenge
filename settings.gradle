@@ -3,4 +3,5 @@ include 'common'
 include 'command-service'
 include 'processor-service'
 include 'query-service'
+include 'domain'
 
