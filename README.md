@@ -53,7 +53,7 @@ $ ./gradlew clean build
 ## Run
 
 ```
-$ build && docker-compose up --build
+$ docker-compose up --build
 ```
 
 ## Documentation
