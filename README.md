@@ -39,13 +39,7 @@ $ docker run --rm -p 2181:2181 -p 3030:3030 -p 8081-8083:8081-8083 \
        landoop/fast-data-dev:latest
 ```
 
-## Build
-
-```
-$ ./gradlew clean build
-```
-
-## Run
+## Run & Build
 
 ```
 $ docker-compose up --build
