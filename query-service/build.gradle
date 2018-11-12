@@ -40,7 +40,4 @@ dependencies {
     compile "org.neo4j:neo4j-ogm-bolt-driver:2.1.6"
 
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
-
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
