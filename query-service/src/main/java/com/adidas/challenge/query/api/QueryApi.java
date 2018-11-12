@@ -1,7 +1,12 @@
 package com.adidas.challenge.query.api;
 
+import com.adidas.challenge.common.data.output.ModelError;
 import com.adidas.challenge.common.data.output.SuccessOutput;
+import com.adidas.challenge.query.data.ItineraryOutput;
 import com.adidas.challenge.query.service.ItineraryService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +22,14 @@ public class QueryApi {
     private final ItineraryService itineraryService;
 
     @GetMapping(path = "/itinerary/{origin}/{destiny}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public SuccessOutput create(@PathVariable String origin, @PathVariable String destiny) {
+    @ApiOperation(value = "Search Itinerary", notes = "search itinerary by Origin city and Destiny City")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = ItineraryOutput.class, responseContainer = "List"),
+            @ApiResponse(code = 404, message = "Not Found", response = ModelError.class),
+            @ApiResponse(code = 417, message = "Expectation Failed", response = ModelError.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = ModelError.class)
+    })
+    public SuccessOutput search(@PathVariable String origin, @PathVariable String destiny) {
         return itineraryService.search(origin, destiny);
     }
 
