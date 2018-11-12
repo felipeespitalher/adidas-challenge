@@ -17,7 +17,7 @@ spring:
     time-zone: GMT
     default-property-inclusion: NON_NULL
 server:
-  port: 8090
+  port: 8080
   compression:
     enabled: true
     mime-types: text/html,text/xml,text/plain,text/css,application/javascript,application/json

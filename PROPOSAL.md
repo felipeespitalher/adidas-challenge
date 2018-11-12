@@ -4,7 +4,7 @@ One of the most popular practices in event-driven architectures today is called 
 
 The basic idea of CQRS is that it’s perfectly natural to need to separate the models you’re using to update and read data. The diagram above shows this basic idea.
 
-![Basic CQRS](https://github.com/felipeespitalher/adidas-challenge/raw/master/gallery/basic_cqrs.png)
+<img src="https://github.com/felipeespitalher/adidas-challenge/raw/master/gallery/basic_cqrs.png" width="150" height="100">
 
 CQRS is popular for event-driven architectures because [domain events](https://martinfowler.com/eaaDev/DomainEvent.html) — as inputs — are structurally different than the [domain model](https://martinfowler.com/eaaCatalog/domainModel.html) they are subject to
 
