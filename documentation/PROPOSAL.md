@@ -26,7 +26,7 @@ The proposal is to segregate the projects onto 3 micro services distributed thro
 
 The next service is the Processor Service. This CQRS component takes the form of a worker application that is responsible for ingesting any events to propagate to the read-side. The event processor is stateless and listens for messages from the event stream, applying an action for incoming event messages.
 
-![](https://github.com/felipeespitalher/adidas-challenge/raw/master/documentation/images/command_service.png)
+<img src="https://github.com/felipeespitalher/adidas-challenge/raw/master/documentation/images/command_service.png" width="500" height="350">
 
 When Command service's API be triggered then events to Event Store'll be triggered too (KAFKA). [Event store](https://en.wikipedia.org/wiki/Event_store) is a fancy way to say "a system that combines a database together with a message broker."
 
@@ -34,7 +34,7 @@ When Command service's API be triggered then events to Event Store'll be trigger
 
 The next service is the Processor Service. This CQRS component takes the form of a worker application that is responsible for ingesting any events to propagate to the read-side. The event processor is stateless and listens for messages from the event stream, applying an action for incoming event messages.
 
-![](https://github.com/felipeespitalher/adidas-challenge/raw/master/documentation/images/processor_service.png)
+<img src="https://github.com/felipeespitalher/adidas-challenge/raw/master/documentation/images/processor_service.png" width="500" height="350">
 
 For each event that Processor receive a new register at NEO4J is created. Also Processor doesn't have an expose API, because it's only responsibility is handle the events and persist.
 
@@ -42,4 +42,4 @@ For each event that Processor receive a new register at NEO4J is created. Also P
 
 The last service is the Query Service and it's is responsible to materialize the data being searched in a requested manner, in our scenario the neo4j implements a graph database which makes the search algorithm preferable then other options such as RDBMS or Lucene queries.
 
-![](https://github.com/felipeespitalher/adidas-challenge/raw/master/documentation/images/query_service.png)
+<img src="https://github.com/felipeespitalher/adidas-challenge/raw/master/documentation/images/query_service.png" width="500" height="350">
