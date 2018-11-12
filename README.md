@@ -42,8 +42,6 @@ $ docker run --rm -p 2181:2181 -p 3030:3030 -p 8081-8083:8081-8083 \
        landoop/fast-data-dev:latest
 ```
 
-That's it. Visit http://192.168.99.100:3030 to get into the fast-data-dev environment
-
 ## Build
 
 ```
@@ -56,38 +54,25 @@ $ ./gradlew clean build
 $ docker-compose up --build
 ```
 
-## Documentation
+## Access 
 
-### Swagger
+##### Kafka
 
-Command Swagger `http://localhost:8090/swagger-ui.html`
+    http://192.168.99.100:3030/
 
-Query Swagger `http://localhost:8092/swagger-ui.html`
+##### Neo4j
 
-### Example of use
+    http://localhost:7474/browser/
+    
+##### Swagger
 
-Including itineraries
-
-```
-POST - http://localhost:8090/command/v1/city/list
-HADER - Content-Type : application/json
-BODY - [
-         {
-           "origin": "Lisbon",
-           "destiny": "Porto",
-           "departure": "2018-04-10T04:00:00.000Z",
-           "arrival": "2018-04-10T04:00:00.000Z"
-         }
-       ]
-
-```
-
-Searching itineraries by cities
-
-```
-GET - http://localhost:8092/query/v1/itinerary/Lisbon/Paris
-```
+Command Service
  
+        http://localhost:8090/swagger-ui.html`
+    
+Query Service
+ 
+    http://localhost:8092/swagger-ui.html`
  
  ## Libs
 
