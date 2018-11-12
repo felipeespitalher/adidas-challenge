@@ -75,8 +75,8 @@ BODY - [
          {
            "origin": "Lisbon",
            "destiny": "Porto",
-           "departure": "2019-01-01T00:00:00+00:00",
-           "arrival": "2019-01-01T00:00:00+00:00"
+           "departure": "2018-04-10T04:00:00.000Z",
+           "arrival": "2018-04-10T04:00:00.000Z"
          }
        ]
 
@@ -86,7 +86,6 @@ Searching itineraries by cities
 
 ```
 GET - http://localhost:8092/query/v1/itinerary/Lisbon/Paris
-HADER - Content-Type : application/json
 ```
  
  

@@ -1,6 +1,6 @@
 package com.adidas.challenge.common.exceptions;
 
-import com.adidas.challenge.common.data.output.ModelError;
+import com.adidas.challenge.common.data.output.ErrorOutput;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,31 +21,31 @@ public class GlobalExceptionHandler {
         return cause == null ? t : cause(cause);
     }
 
-    private ModelError error(HttpStatus status, String message) {
-        return new ModelError(status.value(), new Date(), message);
+    private ErrorOutput error(HttpStatus status, String message) {
+        return new ErrorOutput(status.value(), new Date(), message);
     }
 
-    private ResponseEntity<ModelError> entity(HttpStatus status, String message) {
+    private ResponseEntity<ErrorOutput> entity(HttpStatus status, String message) {
         return new ResponseEntity<>(error(status, message), status);
     }
 
     @ResponseBody
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ModelError> generic(HttpServletRequest request, Exception ex) {
+    public ResponseEntity<ErrorOutput> generic(HttpServletRequest request, Exception ex) {
         ex.printStackTrace();
         return entity(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
     }
 
     @ResponseBody
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<ModelError> arguments(HttpServletRequest request, IllegalArgumentException ex) {
+    public ResponseEntity<ErrorOutput> arguments(HttpServletRequest request, IllegalArgumentException ex) {
         ex.printStackTrace();
         return entity(HttpStatus.BAD_REQUEST, ex.getMessage());
     }
 
     @ResponseBody
     @ExceptionHandler(DataIntegrityViolationException.class)
-    public ResponseEntity<ModelError> duplicate(HttpServletRequest request, DataIntegrityViolationException ex) {
+    public ResponseEntity<ErrorOutput> duplicate(HttpServletRequest request, DataIntegrityViolationException ex) {
         ex.printStackTrace();
         Throwable cause = cause(ex);
         if (cause instanceof SQLIntegrityConstraintViolationException) {
@@ -57,14 +57,14 @@ public class GlobalExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<ModelError> duplicate(HttpServletRequest request, ConstraintViolationException ex) {
+    public ResponseEntity<ErrorOutput> duplicate(HttpServletRequest request, ConstraintViolationException ex) {
         ex.printStackTrace();
         return entity(HttpStatus.BAD_REQUEST, "duplicate entry");
     }
 
     @ResponseBody
     @ExceptionHandler(NotFoundException.class)
-    public ResponseEntity<ModelError> notFound(HttpServletRequest request, NotFoundException ex) {
+    public ResponseEntity<ErrorOutput> notFound(HttpServletRequest request, NotFoundException ex) {
         ex.printStackTrace();
         return entity(HttpStatus.NOT_FOUND, ex.getMessage());
     }

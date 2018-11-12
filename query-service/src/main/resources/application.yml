@@ -5,7 +5,7 @@ neo4j:
     password: adidas
 spring:
   jackson:
-    date-format: yyyy-MM-dd'T'HH:mm:ssXXX
+    date-format: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
     time-zone: GMT
     default-property-inclusion: NON_NULL
 server:

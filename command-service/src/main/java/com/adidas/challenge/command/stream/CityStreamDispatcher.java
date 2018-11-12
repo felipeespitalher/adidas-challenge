@@ -1,6 +1,6 @@
 package com.adidas.challenge.command.stream;
 
-import com.adidas.challenge.common.data.input.CityInput;
+import com.adidas.challenge.common.data.input.ItineraryInput;
 import com.adidas.challenge.common.data.mapper.CityMapper;
 import com.adidas.challenge.common.data.output.SuccessOutput;
 import com.adidas.challenge.common.service.AbstractService;
@@ -23,7 +23,7 @@ public class CityStreamDispatcher extends AbstractService {
     private final CitiesStreams citiesStreams;
     private final CityMapper cityMapper;
 
-    public SuccessOutput sendCities(final CityInput request) {
+    public SuccessOutput sendCities(final ItineraryInput request) {
         log.info("Sending cities {}", request);
 
         Cities cities = cityMapper.toCities(request);
@@ -35,8 +35,8 @@ public class CityStreamDispatcher extends AbstractService {
         }
     }
 
-    public SuccessOutput sendCities(final List<CityInput> request) {
-        for (CityInput city : request) {
+    public SuccessOutput sendCities(final List<ItineraryInput> request) {
+        for (ItineraryInput city : request) {
             sendCities(city);
         }
         return new SuccessOutput();

@@ -1,8 +1,8 @@
 package com.adidas.challenge.command.api;
 
 import com.adidas.challenge.command.stream.CityStreamDispatcher;
-import com.adidas.challenge.common.data.input.CityInput;
-import com.adidas.challenge.common.data.output.ModelError;
+import com.adidas.challenge.common.data.input.ItineraryInput;
+import com.adidas.challenge.common.data.output.ErrorOutput;
 import com.adidas.challenge.common.data.output.SuccessOutput;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -21,7 +21,7 @@ import java.util.List;
 @Transactional
 @RestController
 @AllArgsConstructor
-@RequestMapping(path = "command/v1/city", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "command/v1/itinerary", produces = MediaType.APPLICATION_JSON_VALUE)
 public class CommandApi {
 
     private final CityStreamDispatcher cityStreamDispatcher;
@@ -30,11 +30,11 @@ public class CommandApi {
     @ApiOperation(value = "Create itinerary", notes = "create one itinerary")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = SuccessOutput.class),
-            @ApiResponse(code = 404, message = "Not Found", response = ModelError.class),
-            @ApiResponse(code = 417, message = "Expectation Failed", response = ModelError.class),
-            @ApiResponse(code = 500, message = "Internal Server Error", response = ModelError.class)
+            @ApiResponse(code = 404, message = "Not Found", response = ErrorOutput.class),
+            @ApiResponse(code = 417, message = "Expectation Failed", response = ErrorOutput.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = ErrorOutput.class)
     })
-    public SuccessOutput createByOne(@Valid @RequestBody CityInput request) {
+    public SuccessOutput createByOne(@Valid @RequestBody ItineraryInput request) {
         return cityStreamDispatcher.sendCities(request);
     }
 
@@ -42,11 +42,11 @@ public class CommandApi {
     @ApiOperation(value = "Create a list of itineraries", notes = "create a list of itineraries")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = SuccessOutput.class),
-            @ApiResponse(code = 404, message = "Not Found", response = ModelError.class),
-            @ApiResponse(code = 417, message = "Expectation Failed", response = ModelError.class),
-            @ApiResponse(code = 500, message = "Internal Server Error", response = ModelError.class)
+            @ApiResponse(code = 404, message = "Not Found", response = ErrorOutput.class),
+            @ApiResponse(code = 417, message = "Expectation Failed", response = ErrorOutput.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = ErrorOutput.class)
     })
-    public SuccessOutput createByList(@Valid @RequestBody List<CityInput> request) {
+    public SuccessOutput createByList(@Valid @RequestBody List<ItineraryInput> request) {
         return cityStreamDispatcher.sendCities(request);
     }
 
