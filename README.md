@@ -6,7 +6,6 @@ Solution for Adidas Coding Challenge
 
 ## Environment Requirements 
 
-* Gradle 4.x or newer
 * Docker 17.x or newer
 * Have Lombok plugin installed in your IDE to avoid seeing compile errors
 
