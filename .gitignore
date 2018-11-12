@@ -10,7 +10,6 @@ build/*
 out/*
 /*/out/*
 docker
-*.md
 .gradle/*
 gradle/*
 gradlew
