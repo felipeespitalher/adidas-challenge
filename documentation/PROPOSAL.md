@@ -40,6 +40,6 @@ For each event that Processor receive a new register at NEO4J is created. Also P
 
 ## Query Service
 
-The last service is the Query Service and it's is responsible for search data at NEO4J.
+The last service is the Query Service and it's is responsible to materialize the data being searched in a requested manner, in our scenario the neo4j implements a graph database which makes the search algorithm preferable then other options such as RDBMS or Lucene queries.
 
 <img src="https://github.com/felipeespitalher/adidas-challenge/raw/master/documentation/images/query_service.png" width="350" height="250">

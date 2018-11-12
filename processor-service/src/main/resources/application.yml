@@ -29,8 +29,8 @@ server:
     min-response-size: 1024
 doc:
   api:
-    name: Adidas Challange Test
-    description: Adidas Challange Test
+    name: Adidas Challenge Test
+    description: Adidas Challenge Test
     version: 1.0.0
     maintainer:
       name: Felipe Passos

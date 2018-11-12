@@ -1,4 +1,4 @@
-# Adidas Challange Test - Felipe Passos
+# Adidas Challenge Test - Felipe Passos
 
 Solution for Adidas Coding Challenge
 
