@@ -17,7 +17,7 @@ services:
         ports:
             - 8090:8080
         env_file:
-            - .env
+            - .dockerenv
     processor:
         build: .
         image: adidas-challenge-services:latest
@@ -25,7 +25,7 @@ services:
         ports:
             - 8091:8080
         env_file:
-            - .env
+            - .dockerenv
     query:
         build: .
         image: adidas-challenge-services:latest
@@ -33,4 +33,4 @@ services:
         ports:
             - 8092:8080
         env_file:
-            - .env
+            - .dockerenv
