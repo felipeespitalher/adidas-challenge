@@ -1,5 +1,12 @@
 version: '3'
 services:
+    kafka-stack:
+        image: landoop/fast-data-dev:latest
+        environment:
+            - FORWARDLOGS=0
+            - RUNTESTS=0
+        ports:
+            - 3030:3030
     neo4j:
         image: neo4j:latest
         ports:
@@ -14,6 +21,8 @@ services:
         build: .
         image: adidas-challenge-services:latest
         command: java -jar /app/command-service.jar
+        depends_on:
+            - kafka-stack
         ports:
             - 8090:8080
         env_file:
@@ -22,6 +31,9 @@ services:
         build: .
         image: adidas-challenge-services:latest
         command: java -jar /app/processor-service.jar
+        depends_on:
+            - kafka-stack
+            - neo4j
         ports:
             - 8091:8080
         env_file:
@@ -30,6 +42,9 @@ services:
         build: .
         image: adidas-challenge-services:latest
         command: java -jar /app/query-service.jar
+        depends_on:
+            - kafka-stack
+            - neo4j
         ports:
             - 8092:8080
         env_file:
